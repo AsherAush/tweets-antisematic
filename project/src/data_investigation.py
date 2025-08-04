@@ -55,8 +55,7 @@ class Investigate_data:
         def count_uppercase_words(text):
             full_data = ''.join(text.tolist()).split()
             uppercase_words = [word for word in full_data if word.isupper() and word.isalpha()]
-            word_counter = pd.Series(uppercase_words).value_counts()
-            return  len(word_counter)
+            return  len(uppercase_words)
         return {
             "antisemite": count_uppercase_words(self.antisemite['Text']),
             "no_antisemite": count_uppercase_words(self.no_antisemite['Text']),
