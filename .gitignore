@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Except the .gitignore file itself
+!.gitignore
+
+# Except the project folder
+!project/
+
+# If you want to include files *inside* the folder too:
+!project/**
