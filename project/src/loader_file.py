@@ -1,7 +1,6 @@
 import pandas as pd
-import data
 
-class loader_file:
+class File_loader:
     # A function that reads the file and returns it as a Pandas file.
     def load(self , file_path):
         df = pd.read_csv(file_path)
