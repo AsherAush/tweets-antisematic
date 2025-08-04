@@ -50,6 +50,20 @@ class Investigate_data:
         word_counter = pd.Series(full_data).value_counts()
         return {"total": word_counter.head(10).index.to_list()}
 
+    def uppercase_words(self):
+        # This function returns the all common uppercase words in the tweets.
+        def count_uppercase_words(text):
+            full_data = ''.join(text.tolist()).split()
+            uppercase_words = [word for word in full_data if word.isupper() and word.isalpha()]
+            word_counter = pd.Series(uppercase_words).value_counts()
+            return  len(word_counter)
+        return {
+            "antisemite": count_uppercase_words(self.antisemite['Text']),
+            "no_antisemite": count_uppercase_words(self.no_antisemite['Text']),
+            "total": count_uppercase_words(self.df['Text'])
+        }
+
+
 
 
 
@@ -58,6 +72,7 @@ investigate = Investigate_data(file)
 # investigate = investigate.toral_tweets()
 # investigate = investigate.average_length( )
 # investigate = investigate.longest_3_tweets()
-investigate = investigate.common_words()
+# investigate = investigate.common_words()
+investigate = investigate.uppercase_words()
 
 print(investigate)
